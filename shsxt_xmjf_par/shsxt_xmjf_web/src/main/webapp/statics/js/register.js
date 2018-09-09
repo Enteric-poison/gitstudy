@@ -18,7 +18,7 @@ $(function () {
                 type: 'post',
                 url: ctx + '/sendMsg',
                 data: {
-                    phone: phone,
+                    mobile: phone,
                     imageCode: imageCode,
                     type: 2
                 },

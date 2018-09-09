@@ -21,7 +21,7 @@ public class XmjfConstant {
     public static final Integer SMS_REGISTER_SUCCESS_NOYIRY_TYPE=3;//注册成功
     public static final String SMS_LOGIN_TEMPLATE_CODE="SMS_144145031";//登录码
     public static final String SMS_REGISTER_TEMPLATE_CODE="SMS_144145126";//注册码
-    public static final String  SMS_NOTIFY__TEMPLATE_CDOE="SMS_144145033";//通知码
+    public static final String  SMS_NOTIFY__TEMPLATE_CDOE="SMS_144152152";//通知码
 
     //验证码时间
     public static final  Integer SMS_EXPIRE_TIME=180;
