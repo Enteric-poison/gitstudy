@@ -1,6 +1,7 @@
 package com.xm.server.service;
 
 import com.xm.api.po.BasUser;
+import com.xm.api.querys.BasUserQuery;
 import com.xm.api.service.UserService;
 import com.xm.server.db.dao.BasUserMapper;
 import org.springframework.stereotype.Service;
@@ -19,4 +20,11 @@ public class UserServiceImpl implements UserService {
     public BasUser queryUserByName(String userName) {
         return basUserMapper.queryUserByName(userName);
     }
+
+    @Override
+    public BasUser queryByPhone(String mobile) {
+        return basUserMapper.queryByPhone(mobile);
+    }
+
+
 }

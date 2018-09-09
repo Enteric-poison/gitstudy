@@ -203,5 +203,13 @@
     where username=#{userName}
   </select>
 
+  <select id="queryByPhone" parameterType="string" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from bas_user
+   where
+      status=1  and mobile =#{mobile}
+
+  </select>
+  
 
 </mapper>

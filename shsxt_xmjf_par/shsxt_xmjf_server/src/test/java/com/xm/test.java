@@ -25,4 +25,9 @@ public class test {
         BasUser user= userService.queryUserByName("hcjf20165");
         System.out.println(user.getId()+":userName:"+user.getUsername());
     }
+    @Test
+    public void test02(){
+        BasUser user=userService.queryByPhone("18321530938");
+        System.out.println(user.getId());
+    }
 }
