@@ -18,7 +18,7 @@ body{
 }
 #header .logo{
     width:250px;
-    background:  url(/img/logo_index.png) no-repeat center;
+    background:  url(/statics/img/logo_index.png) no-repeat center;
 }
 #header .header_nav a{
     color: #ffffff;
@@ -104,7 +104,7 @@ body{
     width:420px;
     margin:20px 0;
     height:30px;
-    background: url(/img/announce.png) no-repeat left center;
+    background: url(/statics/img/announce.png) no-repeat left center;
     overflow: hidden;
     position: relative;
     line-height: 30px;
@@ -169,18 +169,18 @@ body{
     transition: 0.6s;
 }
 .security_area a:nth-of-type(1) > div{
-    background: url(/img/yzptindex.png) no-repeat center;
+    background: url(/statics/img/yzptindex.png) no-repeat center;
 
 
 }
 .security_area a:nth-of-type(2) > div{
-    background: url(/img/aqbzindex.png) no-repeat center;
+    background: url(/statics/img/aqbzindex.png) no-repeat center;
 }
 .security_area a:nth-of-type(3) > div{
-    background: url(/img/xxtmindex.png) no-repeat center;
+    background: url(/statics/img/xxtmindex.png) no-repeat center;
 }
 .security_area a:nth-of-type(4) > div{
-    background: url(/img/cpffindex.png) no-repeat center;
+    background: url(/statics/img/cpffindex.png) no-repeat center;
 }
 .security_area a:nth-of-type(1):hover > div{
     transform: rotateY(-180deg);
@@ -376,7 +376,7 @@ body{
     top:0;
 }
 .more_item:after{
-    content:url(/img/gd-icon.png);
+    content:url(/statics/img/gd-icon.png);
     display: inline-block;
     position: absolute;
     width:20px;
@@ -492,12 +492,12 @@ body{
     height:243px;
     top:50%;
     left:30px;
-    background: url(/img/indexerweima.png) no-repeat center bottom;
+    background: url(/statics/img/indexerweima.png) no-repeat center bottom;
 }
 .index_erweima_close{
     width:44px;
     height:44px;
-    background: url(/img/index_erweima_close.png) no-repeat center;
+    background: url(/statics/img/index_erweima_close.png) no-repeat center;
     right:0;
     top:0;
     position: absolute;
