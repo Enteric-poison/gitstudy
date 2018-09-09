@@ -1,4 +1,5 @@
 //页面加载完成之后给图片绑定点击事件
+
 $(function () {
     $(".validImg").click(function () {
         $(this).attr("src", ctx + "/image?time=" + new Date())
@@ -8,31 +9,33 @@ $(function () {
     $("#clickMes").click(function () {
         var phone = $("#phone").val();
         var imageCode = $("#code").val();
-        var checkParams1 = checkParams(phone, imageCode);
-        console.log(checkParams1);
+        checkPhone(phone)
         if (checkParams1 != false) {
-            var _this = $("#clickMes");
-            // time(_this);
-            //发送ajax到后台请求转发短信验证
-            $.ajax({
-                type: 'post',
-                url: ctx + '/sendMsg',
-                data: {
-                    mobile: phone,
-                    imageCode: imageCode,
-                    type: 2
-                },
-                dataType: "json",
-                success: function (data) {
-                    if (data.code == 200) {
-                        time(_this);
-                    } else {
-                        layer.tips(data.msg, "#clickMes");
+            var checImageCode1 = checImageCode(imageCode);
+            if (checImageCode1!=false) {
+                var _this = $("#clickMes");
+                // time(_this);
+                //发送ajax到后台请求转发短信验证
+                $.ajax({
+                    type: 'post',
+                    url: ctx + '/sendMsg',
+                    data: {
+                        mobile: phone,
+                        imageCode: imageCode,
+                        type: 2
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 200) {
+                            time(_this);
+                        } else {
+                            layer.tips(data.msg, "#clickMes");
 
+                        }
                     }
-                }
 
-            });
+                });
+            }
         }
     });
 
@@ -42,8 +45,9 @@ $(function () {
 
         var phone = $("#phone").val();
         var imageCode = $("#code").val();
-        var checkParams1 = checkParams(phone, imageCode);
-        if (checkParams1 != false) {
+        var checkParams1 = util(phone);
+        var checImageCode1 = checImageCode(imageCode);
+        if (checkParams1 != false && checImageCode1!=false) {
 
 
             var password = $("#password").val();
@@ -90,24 +94,4 @@ $(function () {
 });
 
 
-//验证码冷却
-var wait = 180;
 
-function time(o) {
-    if (wait == 0) {
-        o.removeAttr("disabled");
-        o.val('获取验证码');
-        o.css("color", '#ffffff');
-        o.css("background", "#fcb22f");
-        wait = 180;
-    } else {
-        o.attr("disabled", true);
-        o.css("color", '#fff');
-        o.css("background", '#ddd');
-        o.val("重新发送(" + wait + "s)");
-        wait--;
-        setTimeout(function () {
-            time(o)
-        }, 1000)
-    }
-}

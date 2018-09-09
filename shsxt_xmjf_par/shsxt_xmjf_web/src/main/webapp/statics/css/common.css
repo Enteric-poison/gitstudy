@@ -1,7 +1,7 @@
 .about_banner{
     width:100%;
     height:350px;
-    background: url(/img/about.jpg) no-repeat center;
+    background: url(/statics/img/about.jpg) no-repeat center;
     background-size: cover;
 
 }
@@ -24,7 +24,7 @@
 .top .phone{
     padding-left: 40px;
     color:#737373;
-    background: url(/img/phone.png) no-repeat left center;
+    background: url(/statics/img/phone.png) no-repeat left center;
 }
 
 .top .concern{
@@ -37,28 +37,28 @@
 }
 .top .concern .weibo{
     width:54px;
-    background: url(/img/top_weibo.png) no-repeat center;
+    background: url(/statics/img/top_weibo.png) no-repeat center;
 }
 .top .concern .weibo:hover{
-    background: url(/img/topweiboactive.png) no-repeat center;
+    background: url(/statics/img/topweiboactive.png) no-repeat center;
 }
 .top .concern .weixin{
     width:43px;
-    background: url(/img/top_weixin.png) no-repeat center;
+    background: url(/statics/img/top_weixin.png) no-repeat center;
     cursor: pointer;
 }
 .top .concern .weixin:hover{
-    background: url(/img/topweixinactive.png) no-repeat center;
+    background: url(/statics/img/topweixinactive.png) no-repeat center;
 }
 .top .concern .weixin_acitive{
-    background: url(/img/topweixinactive.png) no-repeat center;
+    background: url(/statics/img/topweixinactive.png) no-repeat center;
 }
 .top .concern .qq{
     width:31px;
-    background: url(/img/top_qq.png) no-repeat right center;
+    background: url(/statics/img/top_qq.png) no-repeat right center;
 }
 .top .concern .qq:hover{
-    background: url(/img/topqqactive.png) no-repeat right center;
+    background: url(/statics/img/topqqactive.png) no-repeat right center;
 }
 .toperweima{
     position: absolute;
@@ -102,7 +102,7 @@
     height:110px;
     position: absolute;
     left:0;
-    background:  url(/img/logo.png) no-repeat center;
+    background:  url(/statics/img/logo.png) no-repeat center;
     background-size: contain;
 }
 .header_nav a{
@@ -285,16 +285,16 @@
     top:-30px;
 }
 .right_detail_nav li:nth-of-type(1){
-    background: url(/img/kefu.png) no-repeat right center;
+    background: url(/statics/img/kefu.png) no-repeat right center;
 }
 .right_detail_nav li:nth-of-type(2){
-     background: url(/img/commonqq.png) no-repeat right center;
+     background: url(/statics/img/commonqq.png) no-repeat right center;
  }
 .right_detail_nav li:nth-of-type(3){
-    background: url(/img/erweima.png) no-repeat right center;
+    background: url(/statics/img/erweima.png) no-repeat right center;
 }
 .right_detail_nav li:nth-of-type(4){
-    background: url(/img/zhiding.png) no-repeat right center;
+    background: url(/statics/img/zhiding.png) no-repeat right center;
 }
 .option{
     background: #ffffff;

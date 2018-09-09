@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
    <#include "include/common.ftl">
+    <link rel="stylesheet" href="${ctx}/statics/css/index.css">
     <title>尚学堂金服【官网】-专注互联网金融汽车理财平台</title>
     <meta name="Keywords" content="互联网理财，汽车金融，互联网金融，理财平台，投资理财，金融理财，理财软件">
     <meta name="description" content="尚学堂金服融合”互联网+金融+汽车产业”模式，以互联网为媒介，为投资人与借款人搭建一座桥梁，通过严格的征信，资产审核，以小额、分散、高效、便捷为标准，给广大小微企业和白领提供优质的金融服务。">
@@ -103,7 +104,7 @@
         <a href="/product"><div></div><p>产品丰富</p></a>
     </div>
     <div class="recommend">
-        <div><img src="/img/tuijian.jpg" alt="" width="252" height="534"></div>
+        <div><img src="/statics/img/tuijian.jpg" alt="" width="252" height="534"></div>
         <div class="right_part">
             <h2>热门推荐</h2>
             <div class="box-warp">
@@ -177,7 +178,7 @@
                         <div class="button_area"><input style="cursor: pointer;" type="button" id='gotoDownload' value='立即下载'></div>
                     <#else>
                         <div style="width:100%;">
-                            <img src="/img/appqrcode.png" alt="" height='285' width='285' style="position: relative;left: 15px;top:-10px;">
+                            <img src="/statics/img/appqrcode.png" alt="" height='285' width='285' style="position: relative;left: 15px;top:-10px;">
                             <p style="font-size: 18px;color:#6d6d6d;text-align: center">扫描二维码下载APP</p>
                         </div>
                     </#if>
@@ -185,7 +186,7 @@
                     </div>
                     <div class="box back" id="appDownloadErweima">
                         <h3>APP专享</h3>
-                        <img src="/img/appqrcode.png" alt="" height='285' width='285' style="position: relative;left: 15px;top:-10px;">
+                        <img src="/statics/img/appqrcode.png" alt="" height='285' width='285' style="position: relative;left: 15px;top:-10px;">
                         <p style="font-size: 18px;color:#6d6d6d;text-align: center">扫描二维码下载APP</p>
                     </div>
                 </div>
@@ -244,7 +245,7 @@
         </div>
     </div>
     <div class="recommend">
-        <div><img src="/img/licai.jpg" alt="" width="252" height="534"></div>
+        <div><img src="/statics/img/licai.jpg" alt="" width="252" height="534"></div>
         <div class="right_part">
             <h2>理财项目</h2>
             <a href="/item/investmentList?0?1" class="more_item">更多</a>
@@ -322,19 +323,19 @@
             <ul class="info_list clear">
                         <li>
                             <a href="javascript:void(0)">
-                                <img src="${ctx}/img/hy/1506492138607.jpg" alt="" width="228" height="124">
+                                <img src="${ctx}/statics/img/hy/1506492138607.jpg" alt="" width="228" height="124">
                                 <p>互联网金融迈向新时代</p>
                             </a>
                         </li>
                 <li>
                     <a href="javascript:void(0)">
-                        <img src="${ctx}/img/hy/1507777617312.jpg" alt="" width="228" height="124">
+                        <img src="${ctx}/statics/img/hy/1507777617312.jpg" alt="" width="228" height="124">
                         <p>p2p贷款方向路在何方?</p>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)">
-                        <img src="${ctx}/img/hy/1508470033557.png" alt="" width="228" height="124">
+                        <img src="${ctx}/statics/img/hy/1508470033557.png" alt="" width="228" height="124">
                         <p>p2p与o2o的姻缘</p>
                     </a>
                 </li>
@@ -351,11 +352,11 @@
         </div>
     </div>
     <div class="tiyanbiao">
-        <a href="/register"><img src="/img/tiyanbiao.png" alt="" width="1200" height="181"></a>
+        <a href="/register"><img src="/statics/img/tiyanbiao.png" alt="" width="1200" height="181"></a>
     </div>
     <div class="companies">
         <h2>合作伙伴</h2>
-        <img src="/img/companise/companies.png" alt="" width="1200" height="132">
+        <img src="/statics/img/companise/companies.png" alt="" width="1200" height="132">
     </div>
 </div>
 

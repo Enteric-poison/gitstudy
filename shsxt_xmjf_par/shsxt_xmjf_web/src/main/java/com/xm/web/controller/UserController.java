@@ -1,6 +1,8 @@
 package com.xm.web.controller;
 
+import com.xm.api.constant.XmjfConstant;
 import com.xm.api.model.ResultInfo;
+import com.xm.api.model.UserModel;
 import com.xm.api.po.BasUser;
 import com.xm.api.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * @handsome
@@ -34,6 +37,22 @@ public class UserController {
         return new ResultInfo();
     }
 
+    //密码登录
+    @ResponseBody
+    @RequestMapping("user/login")
+    public ResultInfo login(String mobile, String password, HttpSession session){
+        UserModel userModel= userService.userLogin(mobile,password);
+        session.setAttribute(XmjfConstant.USER_INFO,userModel);
+        return new ResultInfo();
+    }
+    //快速登录
+    @RequestMapping("doquickLogin")
+    @ResponseBody
+    public ResultInfo quickLogin(String mobile, String code, HttpSession session){
+        UserModel userModel= userService.quickLogin(mobile,code);
+        session.setAttribute(XmjfConstant.USER_INFO,userModel);
+        return new ResultInfo();
+    }
 
 
 }

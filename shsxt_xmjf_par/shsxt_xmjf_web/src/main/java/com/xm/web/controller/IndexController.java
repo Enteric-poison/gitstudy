@@ -26,4 +26,8 @@ public class IndexController extends BaseController {
     public String register(){
         return "register";
     }
+    @RequestMapping("quickLogin")
+    public String quickLogin(){
+        return "quick_login";
+    }
 }

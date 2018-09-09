@@ -1,6 +1,7 @@
 package com.xm.server.service;
 
 import com.xm.api.constant.XmjfConstant;
+import com.xm.api.model.UserModel;
 import com.xm.api.po.BasExperiencedGold;
 import com.xm.api.po.BasUser;
 import com.xm.api.service.SmsService;
@@ -59,6 +60,53 @@ public class UserServiceImpl implements UserService {
         // 发送通知短信
         smsService.sendSMsg(mobile,XmjfConstant.SMS_REGISTER_SUCCESS_NOYIRY_TYPE);
 
+    }
+
+    //普通用户登录
+    @Override
+    public UserModel userLogin(String mobile, String password) {
+        //验证参数
+        checkParams(mobile,password);
+        BasUser basUser= basUserMapper.queryByPhone(mobile);
+        AssertUtil.isTrue(basUser==null,"用户不存在");
+        String newp= MD5.GetMD5Code(password+basUser.getSalt());//获取盐
+        AssertUtil.isTrue(!(basUser.getPassword().equals(newp)),"密码错误");
+        return buildUserInfo(basUser);
+    }
+
+    //快速登录
+    @Override
+    public UserModel quickLogin(String mobile, String code) {
+        checkQuickLoginParams(mobile,code);
+        BasUser basUser=basUserMapper.queryByPhone(mobile);
+        AssertUtil.isTrue(null ==basUser,"该手机号暂未注册!");
+        return buildUserInfo(basUser);
+    }
+
+    //快速登录校验
+    private void checkQuickLoginParams(String mobile, String code) {
+        //验证手机号
+        PhoneUtil.checkPhone(mobile);
+        String  key=mobile+"::"+ XmjfConstant.SMS_LOGIN_TEMPLATE_CODE+"::"+code;
+        System.out.println("key:"+key);
+        AssertUtil.isTrue(!redisTemplate.hasKey(key),"验证码不存在或者已失效");
+        String cacheCode= (String) redisTemplate.opsForValue().get(key);
+        AssertUtil.isTrue(!(cacheCode.equals(code)),"验证码输出错误!");
+    }
+
+    //封装返回信息
+    private UserModel buildUserInfo(BasUser basUser) {
+        UserModel userModel=new UserModel();
+        userModel.setId(basUser.getId());
+        userModel.setUsername(basUser.getUsername());
+        userModel.setMobile(basUser.getMobile());
+        return userModel;
+    }
+
+    //验证手机是否为空，密码
+    private void checkParams(String mobile, String password) {
+        PhoneUtil.checkPhone(mobile);
+        AssertUtil.isTrue(StringUtils.isBlank(password),"密码不能为空");
     }
 
     // 初始化用户信息扩展数据

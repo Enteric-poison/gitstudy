@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <#include "include/common.ftl">
-
+    <link rel="stylesheet" href="${ctx}/statics/css/login.css">
     <script type="text/javascript" src="${ctx}/statics/js/login.js"></script>
 </head>
 <body>

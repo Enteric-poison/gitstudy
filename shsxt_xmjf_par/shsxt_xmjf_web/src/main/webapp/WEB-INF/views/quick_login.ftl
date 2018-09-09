@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>快捷登陆</title>
     <#include "include/common.ftl">
-
+    <link rel="stylesheet" href="${ctx}/statics/css/quickLogin.css">
     <script type="text/javascript">
         var ctx="${ctx}";
     </script>
@@ -26,7 +26,7 @@
                     <p class="login_input_wrap"><input placeholder="手机号" type="text" id="phone" class="login-input1" /></p>
                     <p class="login_input_code">
                         <input id="code" placeholder="请输入验证码" type="text"  class="login-input login-check-code"/>
-                        <img class="validImg" alt="点击更换" title="点击更换" src="${ctx}/statics/img/getPictureVerifyImage"/>
+                        <img class="validImg" alt="点击更换" title="点击更换" src="${ctx}/image"/>
                     </p>
                     <p class="login_input_password">
                         <input type="text" id="verification" placeholder="请输入验证码" class="login-input-verification"/>

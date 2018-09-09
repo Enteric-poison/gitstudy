@@ -14,6 +14,8 @@ public class XmjfConstant {
 
     // 图片验证码常量串
     public static final String IMAGE_VERIFY="image";
+    // 用户session 信息常量
+    public static final String USER_INFO="userInfo";
 
     // 手机短信类型常亮
     public static final Integer SMS_LOGIN_TYPE=1;//登录

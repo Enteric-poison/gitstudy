@@ -5,7 +5,7 @@
 </div>
 <div class="header">
     <div class="contain">
-        <a href="/index?0?0" class="logo">
+        <a href="/statics/index?0?0" class="logo">
         </a>
         <div class="header_nav" id="indexNav">
             <a href="${ctx}/index">首页</a>
