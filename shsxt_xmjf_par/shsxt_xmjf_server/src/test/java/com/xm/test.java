@@ -30,4 +30,10 @@ public class test {
         BasUser user=userService.queryByPhone("18321530938");
         System.out.println(user.getId());
     }
+
+    @Test
+    public void test03(){
+        userService.saveUser("15718871127","123456","7075");
+    }
+
 }

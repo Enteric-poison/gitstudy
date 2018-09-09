@@ -20,29 +20,17 @@
     id, user_id, gold_name, way, amount, useful_life, rate, expired_time, use_time, status, 
     addtime, addip, invest_id
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from bas_experienced_gold
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="delete" parameterType="java.lang.Integer">
     delete from bas_experienced_gold
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.xm.api.po.BasExperiencedGold">
-    insert into bas_experienced_gold (id, user_id, gold_name, 
-      way, amount, useful_life, 
-      rate, expired_time, use_time, 
-      status, addtime, addip, 
-      invest_id)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{goldName,jdbcType=VARCHAR}, 
-      #{way,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{usefulLife,jdbcType=INTEGER}, 
-      #{rate,jdbcType=DECIMAL}, #{expiredTime,jdbcType=TIMESTAMP}, #{useTime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{addip,jdbcType=VARCHAR}, 
-      #{investId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xm.api.po.BasExperiencedGold">
+  <insert id="save" parameterType="com.xm.api.po.BasExperiencedGold">
     insert into bas_experienced_gold
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -127,7 +115,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xm.api.po.BasExperiencedGold">
+  <update id="update" parameterType="com.xm.api.po.BasExperiencedGold">
     update bas_experienced_gold
     <set>
       <if test="userId != null">
@@ -169,20 +157,5 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xm.api.po.BasExperiencedGold">
-    update bas_experienced_gold
-    set user_id = #{userId,jdbcType=INTEGER},
-      gold_name = #{goldName,jdbcType=VARCHAR},
-      way = #{way,jdbcType=VARCHAR},
-      amount = #{amount,jdbcType=DECIMAL},
-      useful_life = #{usefulLife,jdbcType=INTEGER},
-      rate = #{rate,jdbcType=DECIMAL},
-      expired_time = #{expiredTime,jdbcType=TIMESTAMP},
-      use_time = #{useTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=INTEGER},
-      addtime = #{addtime,jdbcType=TIMESTAMP},
-      addip = #{addip,jdbcType=VARCHAR},
-      invest_id = #{investId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
 </mapper>

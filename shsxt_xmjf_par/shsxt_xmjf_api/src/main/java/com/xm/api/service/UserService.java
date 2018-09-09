@@ -9,7 +9,8 @@ import java.util.List;
  * @handsome
  * @date 2018/9/9 15:09
  */
-public interface UserService{
+public interface UserService {
     public BasUser queryUserByName(String userName);
     public BasUser queryByPhone(String mobile);
+    public void saveUser(String mobile,String password,String code);
 }

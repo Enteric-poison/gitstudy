@@ -49,15 +49,18 @@ public class SmsServiceImpl implements SmsService {
         if (type.equals(XmjfConstant.SMS_LOGIN_TYPE)){//手机登录
             sendMsg(mobile,XmjfConstant.SMS_LOGIN_TEMPLATE_CODE,code);
             key=mobile+"::"+XmjfConstant.SMS_LOGIN_TEMPLATE_CODE+"::"+code;
-            redisTemplate.opsForValue().set(key,code,XmjfConstant.SMS_EXPIRE_TIME, TimeUnit.SECONDS);
+           // redisTemplate.opsForValue().set(key,code,XmjfConstant.SMS_EXPIRE_TIME, TimeUnit.SECONDS);
         } else if (type.equals(XmjfConstant.SMS_REGISTER_TYPE)){//注册端口
             sendMsg(mobile,XmjfConstant.SMS_REGISTER_TEMPLATE_CODE,code);
             key=mobile+"::"+XmjfConstant.SMS_REGISTER_TEMPLATE_CODE+"::"+code;
-            redisTemplate.opsForValue().set(key,code,XmjfConstant.SMS_EXPIRE_TIME, TimeUnit.SECONDS);
+            //redisTemplate.opsForValue().set(key,code,XmjfConstant.SMS_EXPIRE_TIME, TimeUnit.SECONDS);
+        } else if (type.equals(XmjfConstant.SMS_REGISTER_SUCCESS_NOYIRY_TYPE)){
+            sendMsg(mobile,XmjfConstant.SMS_REGISTER_TEMPLATE_CODE,code);
+            key=mobile+"::"+XmjfConstant.SMS_REGISTER_TEMPLATE_CODE+"::"+code;
         }else {
             System.err.println("短信类型错误");
         }
-
+        redisTemplate.opsForValue().set(key,code,XmjfConstant.SMS_EXPIRE_TIME, TimeUnit.SECONDS);
     }
 
     //发送短信端口
