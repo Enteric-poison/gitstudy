@@ -1,5 +1,6 @@
 package com.xm.web.controller;
 
+import com.xm.api.model.ResultInfo;
 import com.xm.api.po.BasUser;
 import com.xm.api.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,13 @@ public class UserController {
         return userService.queryUserByName(userName);
     }
 
+    //注册用户
+    @RequestMapping("user/doRegister")
+    @ResponseBody
+    public ResultInfo doSave(String mobile,String code,String password){
+        userService.saveUser(mobile,password,code);
+        return new ResultInfo();
+    }
 
 
 

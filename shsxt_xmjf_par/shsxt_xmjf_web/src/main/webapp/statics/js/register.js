@@ -62,7 +62,7 @@ $(function () {
         }
         $.ajax({
             type:'post',
-            url:ctx+'',
+            url:ctx+'/user/doRegister',
             data:{
                 mobile:phone,
                 password:password,
@@ -75,6 +75,8 @@ $(function () {
                     layer.alert(data.msg, {icon: 6});
                     //清空
                     $(".box-input input").val("");
+                    //跳转到登录页面
+                    window.location.href=ctx+"/login";
                 }else {
                     //失败
                     layer.alert(data.msg, {icon: 5});
