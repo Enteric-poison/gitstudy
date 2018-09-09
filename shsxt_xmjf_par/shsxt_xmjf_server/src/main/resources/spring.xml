@@ -5,6 +5,7 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
@@ -86,6 +87,50 @@
     </bean>
 
 
+    <!--
+      spring-data-redis 集成spring
+    -->
+    <!-- 连接池配置 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <!-- 最大连接数 -->
+        <property name="maxTotal" value="1024" />
+        <!-- 最大 空闲连接数 -->
+        <property name="maxIdle" value="200" />
+        <!-- 获取连接时最大等待毫秒数 -->
+        <property name="maxWaitMillis" value="120000" />
+        <!-- 在获取连接时检查有效性 -->
+        <property name="testOnBorrow" value="true" />
+    </bean>
+    <!-- 客户端连接工厂 -->
+    <bean id="jedisConnFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:use-pool="true" p:host-name="192.168.65.135" p:port="6379"
+          p:password="food" >
+        <!-- 连接池引用 -->
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig" />
+    </bean>
+
+    <!-- redisTemplate 配置 -->
+    <bean id="redisTemplate"
+          class="org.springframework.data.redis.core.RedisTemplate"
+          p:connection-factory-ref="jedisConnFactory" >
+        <!-- 配置序列化操作 -->
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+        </property>
+        <property name="hashKeySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="hashValueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+        </property>
+    </bean>
+
+
+
 
     <!--
        dubbo 集成spring 配置
@@ -104,4 +149,6 @@
     -->
     <dubbo:service interface="com.xm.api.service.UserService" ref="userServiceImpl"></dubbo:service>
 
+    <!--短信接口-->
+    <dubbo:service interface="com.xm.api.service.SmsService" ref="smsServiceImpl"></dubbo:service>
 </beans>
