@@ -151,4 +151,9 @@
 
     <!--短信接口-->
     <dubbo:service interface="com.xm.api.service.SmsService" ref="smsServiceImpl"></dubbo:service>
+
+    <!--投资接口-->
+    <dubbo:service interface="com.xm.api.service.BasItemService" ref="basItemServiceImpl"></dubbo:service>
+
+
 </beans>

@@ -1,5 +1,6 @@
 package com.xm.server.db.base;
 
+import com.xm.api.querys.BaseQuery;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.dao.DataAccessException;
 
@@ -42,7 +43,7 @@ public interface BaseDao<T> {
      * @return
      * @throws DataAccessException
      */
-    public  List<T> queryByParams(T query) throws  DataAccessException;
+    public  List<T> queryByParams(BaseQuery baseQuery) throws  DataAccessException;
 
 
     /**

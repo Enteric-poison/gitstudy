@@ -78,4 +78,7 @@
 
     <dubbo:reference id="smsService" interface="com.xm.api.service.SmsService"  timeout="60000"/>
 
+    <dubbo:reference id="basItemService" interface="com.xm.api.service.BasItemService" timeout="60000"/>
+
+
 </beans>

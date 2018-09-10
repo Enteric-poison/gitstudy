@@ -3,7 +3,7 @@ $(function () {
         var mobile=$("#phone").val();
         var password=$("#password").val();
        //验证手机号是否合法
-        var checkParams1 = util(mobile);
+        var checkParams1 = checkPhone(mobile);
         if (checkParams1!=false){
             if (isEmpty(password)){
                 layer.tips("密码不能为空","#password");
