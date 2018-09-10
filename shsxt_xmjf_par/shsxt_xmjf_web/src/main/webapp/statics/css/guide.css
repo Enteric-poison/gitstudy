@@ -101,34 +101,34 @@ div[class^=title_area]:after{
     background-size: contain;
 }
 .step_nav li:nth-of-type(1){
- background-image:url(/img/guide/zc_nav.png);
+ background-image:url(/statics/img/guide/zc_nav.png);
 }
 .step_nav li:nth-of-type(2){
-    background-image:url(/img/guide/rz_nav.png);
+    background-image:url(/statics/img/guide/rz_nav.png);
 }
 .step_nav li:nth-of-type(3){
-    background-image:url(/img/guide/cz_nav.png);
+    background-image:url(/statics/img/guide/cz_nav.png);
 }
 .step_nav li:nth-of-type(4){
-    background-image:url(/img/guide/tz_nav.png);
+    background-image:url(/statics/img/guide/tz_nav.png);
 }
 .step_nav li:nth-of-type(5){
-    background-image:url(/img/guide/sk_nav.png);
+    background-image:url(/statics/img/guide/sk_nav.png);
 }
 .step_nav li.nav0{
-    background-image:url(/img/guide/zc-icon.png);
+    background-image:url(/statics/img/guide/zc-icon.png);
 }
 .step_nav li.nav1{
-    background-image:url(/img/guide/rz-icon.png);
+    background-image:url(/statics/img/guide/rz-icon.png);
 }
 .step_nav li.nav2{
-    background-image:url(/img/guide/cz-icon.png);
+    background-image:url(/statics/img/guide/cz-icon.png);
 }
 .step_nav li.nav3{
-    background-image:url(/img/guide/tz-icon.png);
+    background-image:url(/statics/img/guide/tz-icon.png);
 }
 .step_nav li.nav4{
-    background-image:url(/img/guide/sk-icon.png);
+    background-image:url(/statics/img/guide/sk-icon.png);
 }
 .content_wrap{
     width:100%;

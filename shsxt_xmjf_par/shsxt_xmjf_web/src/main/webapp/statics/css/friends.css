@@ -77,13 +77,13 @@
     padding-top: 62px;
 }
 .friends_top .ways  div.invites_weibo{
-    background: url(/img/weibo.png) no-repeat;
+    background: url(/statics/img/weibo.png) no-repeat;
 }
 .friends_top .ways  div.invites_wechat{
-    background: url(/img/weixin.png) no-repeat;
+    background: url(/statics/img/weixin.png) no-repeat;
 }
 .friends_top .ways  div.invites_QQ{
-    background: url(/img/QQ.png) no-repeat;
+    background: url(/statics/img/QQ.png) no-repeat;
 }
 .invite_list h2{
     color:#5f5f5f;

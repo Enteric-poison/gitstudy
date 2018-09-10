@@ -15,16 +15,16 @@
     color:#fff;
 }
 .order{
-    background: url(/img/order_gray.png) no-repeat center right;
+    background: url(/statics/img/order_gray.png) no-repeat center right;
     width:13px;
     height:13px;
     display: inline-block;
 }
 .order_top{
-    background: url(/img/order_top.png) no-repeat center right;
+    background: url(/statics/img/order_top.png) no-repeat center right;
 }
 .order_down{
-    background: url(/img/order_down.png) no-repeat center right;
+    background: url(/statics/img/order_down.png) no-repeat center right;
 }
 .order_item{
     cursor: pointer;
@@ -174,7 +174,7 @@
 }
 .yihuankuan:after{
     position: absolute;
-    content:url(/img/already_pay.png);
+    content:url(/statics/img/already_pay.png);
     width:73px;
     height:73px;
     display: inline-block;

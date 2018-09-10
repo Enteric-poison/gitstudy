@@ -36,7 +36,7 @@ body{
     color:#ff5555;
 }
 .navs a.active:after{
-    background:url(/img/about_siderbar_active.png);
+    background:url(/statics/img/about_siderbar_active.png);
     display: inline-block;
     position: absolute;
     width:45px;

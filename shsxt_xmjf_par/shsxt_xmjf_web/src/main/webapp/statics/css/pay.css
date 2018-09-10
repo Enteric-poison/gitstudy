@@ -19,7 +19,7 @@ form:before{
     font-size:14px;
 }
 form:after{
-    content:url(/img/bank.png);
+    content:url(/statics/img/bank.png);
     display: inline-block;
     position: absolute;
     left:372px;

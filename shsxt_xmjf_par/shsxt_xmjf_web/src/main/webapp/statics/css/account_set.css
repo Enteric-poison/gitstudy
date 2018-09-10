@@ -46,10 +46,10 @@
     text-indent: 36px;
 }
 .account_set_area .setted{
-    background: url(/img/setted.png) no-repeat left;
+    background: url(/statics/img/setted.png) no-repeat left;
 }
 .account_set_area .set_tip{
-    background: url(/img/set_tip.png) no-repeat left;
+    background: url(/statics/img/set_tip.png) no-repeat left;
 }
 .account_set_area .col4{
     font-size: 16px;
@@ -87,7 +87,7 @@
     width:650px;
     font-size: 14px;
     color:#737373;
-    background: #fffaf0 url(/img/set_tip.png) no-repeat 14px center;
+    background: #fffaf0 url(/statics/img/set_tip.png) no-repeat 14px center;
     border: 1px solid #ffcf7b;
     padding-left: 50px;
     border-radius: 4px;

@@ -15,7 +15,7 @@
 .user_siderbar .portrait{
     height:140px;
     background-size: 140px 140px;
-    background: url(/img/portrait.png) no-repeat center;
+    background: url(/statics/img/portrait.png) no-repeat center;
 }
 .user_siderbar .text{
     line-height: 32px;
@@ -40,27 +40,27 @@
 
 }
 .user_siderbar .rechargeWays li:nth-of-type(1){
-    background: url(/img/recharge_way1.png) no-repeat;
+    background: url(/statics/img/recharge_way1.png) no-repeat;
 }
 .user_siderbar .rechargeWays li:nth-of-type(2){
-    background: url(/img/recharge_way2.png) no-repeat;
+    background: url(/statics/img/recharge_way2.png) no-repeat;
 }
 .user_siderbar .rechargeWays li:nth-of-type(3){
-    background: url(/img/recharge_way3.png) no-repeat;
+    background: url(/statics/img/recharge_way3.png) no-repeat;
 }
 .user_siderbar .rechargeWays li:nth-of-type(4){
-    background: url(/img/recharge_way4.png) no-repeat;
+    background: url(/statics/img/recharge_way4.png) no-repeat;
     margin-right: 0;
 }
 
 .user_siderbar .rechargeWays .liAcive:nth-of-type(1){
-    background: url(/img/shimingrenzheng2.png) no-repeat;
+    background: url(/statics/img/shimingrenzheng2.png) no-repeat;
 }
 .user_siderbar .rechargeWays .liAcive:nth-of-type(3){
-    background: url(/img/yinhangka.png) no-repeat;
+    background: url(/statics/img/yinhangka.png) no-repeat;
 }
 .user_siderbar .rechargeWays .liAcive:nth-of-type(4){
-    background: url(/img/vip.png) no-repeat;
+    background: url(/statics/img/vip.png) no-repeat;
     margin-right: 0;
 }
 .user_siderbar .button_area{
@@ -97,7 +97,7 @@
     position: relative;
 }
 .user_siderbar .nav_classify .wallet:before{
-    content:url(/img/wallet.png);
+    content:url(/statics/img/wallet.png);
     position: absolute;
     width:30px;
     height:100%;
@@ -105,7 +105,7 @@
     top:3px;
 }
 .user_siderbar .nav_classify .manage:before{
-    content:url(/img/manage.png);
+    content:url(/statics/img/manage.png);
     position: absolute;
     width:30px;
     height:100%;
@@ -127,7 +127,7 @@
     color:#faa30a;
 }
 .user_siderbar .nav_classify a:hover:after,.user_siderbar .nav_classify a.user_active:after{
-    content:url(/img/xiaotubiao.png);
+    content:url(/statics/img/xiaotubiao.png);
     width:20px;
     height:20px;
     display: inline-block;
@@ -155,7 +155,7 @@
     text-decoration: underline;
 }
 .siderTips:after{
-    content:url(/img/sanjiao.png);
+    content:url(/statics/img/sanjiao.png);
     display: inline-block;
     position: absolute;
     width:12px;
@@ -176,7 +176,7 @@
     width:35px;
     height:35px;
     position:absolute;
-    background: url(/img/xiaoxizhongxin.png) no-repeat center;
+    background: url(/statics/img/xiaoxizhongxin.png) no-repeat center;
     top:-28px;
     right:14px;
 

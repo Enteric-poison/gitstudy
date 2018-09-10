@@ -24,7 +24,7 @@
     height:104px;
     width:100%;
     line-height:104px;
-    background: url(/img/calendar.png) no-repeat right 242px top 38px;
+    background: url(/statics/img/calendar.png) no-repeat right 242px top 38px;
     color:#5e5d5d;
 }
 .calendar_show table{
