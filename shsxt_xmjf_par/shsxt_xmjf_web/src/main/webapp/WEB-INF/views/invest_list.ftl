@@ -22,19 +22,19 @@
 </div>
 <div class="header">
     <div class="contain">
-      <#--  <a href="http://localhost:9999/index?0?0" class="logo">-->
+        <a href="http://localhost:8888/index?0?0" class="logo">
         </a>
         <div class="header_nav" id="indexNav">
             <a href="${ctx}/index">首页</a>
-            <a href="${ctx}/basItem/basItemListPage">我要投资</a>
+            <a href="${ctx}/item/index">我要投资</a>
             <a href="${ctx}/security?0?2">安全保障</a>
             <a href="${ctx}/account/accountInfo">我的账户</a>
             <a href="${ctx}/introduce?0?4">关于我们</a>
         </div>
         <div class="header_button">
             <div id="noUserId" style="width:142px;float: right">
-                <a href="http://localhost:9999/user/toLoginPage"><input class="btn register" id="loginPage" type="button" value="登录"></a>
-                <a href="http://localhost:9999/user/toRegisterPage"><input class="btn register" id="registerPage" type="button" value="注册"></a>
+                <a href="http://localhost:8888/user/login"><input class="btn register" id="loginPage" type="button" value="登录"></a>
+                <a href="http://localhost:8888/user/register"><input class="btn register" id="registerPage" type="button" value="注册"></a>
             </div>
         </div>
     </div>
@@ -83,9 +83,9 @@
     <div class="pages">
         <nav>
             <ul id="pages" style="margin:75px auto 110px;" class="pagination">
-                <li class="active"><a title="第一页" >1</a></li>
+               <#-- <li class="active"><a title="第一页" >1</a></li>
                 <li><a title="第二页">2</a></li>
-                <li><a title="第三页">3</a></li>
+                <li><a title="第三页">3</a></li>-->
             </ul>
         </nav>
     </div>
