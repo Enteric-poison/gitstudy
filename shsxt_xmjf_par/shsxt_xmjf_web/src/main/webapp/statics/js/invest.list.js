@@ -59,11 +59,10 @@ function loadInvestListDataInfo(itemCycle,isHistory,itemType,pageNum,pageSize) {
             var list=data.list;
             $("#pages").html("");
             if(page.total>0){
-
-
                 initTrHtml(list);
                 // 渲染投资进度
                 initInvestJd();
+
                 // 拼接页码html
                 initPageHtml(page);
             }else{
@@ -184,7 +183,6 @@ function initItemData(itemType) {
         if ($(this).hasClass('list_active')) {
             itemCycle=$(this).index();
         }
-
     });
     if (itemCycle==4){
         isHistory=1;
@@ -193,17 +191,17 @@ function initItemData(itemType) {
 }
 //页码拼接
 function initPageHtml(page) {
-    var pageArry=page.navigatePages;
+    var pageArry=page.navigatepageNums;
 
     if (pageArry.length>0){
         var lis='';
         for (var i=0;i<pageArry.length;i++){
             var p=pageArry[i];
-           var href='javascript:toPageDataInfo('+p+')';
+           var href="javascript:toPageDataInfo("+p+")";
            if (page.pageNum==p){
-               lis=lis+"<li class='active'><a href='"+href+"' title='第'“+p+”页>"+p+"</a>";
+               lis=lis+"<li class='active'><a href='"+href+"' title='第"+p+"页' >"+p+"</a></li>";
            }else {
-               lis=lis+"<li ><a href='"+href+"' title='第'“+p+”页>"+p+"</a>";
+               lis=lis+"<li><a href='"+href+"' title='第"+p+"页' >"+p+"</a></li>";
            }
         }
         $("#pages").html(lis);
