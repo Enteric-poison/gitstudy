@@ -15,6 +15,84 @@ $(function () {
         loadInvestListDataInfo(itemCycle,isHistory,itemType);
     });
 
+    var count=0;
+    //点击年化
+    $("#itemRate").click(function () {
+
+        var  itemRate;
+        count+=1;
+        if (count==1) {
+            $(this).addClass("val1");
+            var i=$("#itemRate").hasClass("val1");
+            if (i){
+                itemRate=1;
+                $(this).removeClass("val1");
+            }
+        }
+        if (count==2) {
+            $(this).addClass("val2");
+           var i=$("#itemRate").hasClass("val2");
+          if (i){
+              itemRate=2;
+              $(this).removeClass("val2");
+          }
+          count=0;
+        }
+        var itemCycle;
+        var isHistory=0;
+        $(".tab").each(function () {
+            if ($(this).hasClass('list_active')) {
+                itemCycle=$(this).index();
+            }
+        });
+        if (itemCycle==4){
+            isHistory=1;
+        }
+        console.log(itemRate);
+        var itemType=$("#itemType").val();
+       loadInvestListDataInfo(itemCycle,isHistory,itemType,null,null,itemRate,null);
+    });
+
+    //点击期限
+    $("#itemCycle").click(function () {
+        var cycle;
+        count+=1;
+        if (count==1){
+            $(this).addClass("val1");
+            var i=$(this).hasClass('val1');
+            if (i){
+                cycle=1;
+                $(this).removeClass("val1");
+            }
+        }
+        if (count==2){
+            $(this).addClass("val2");
+            var i=$(this).hasClass('val2');
+            if (i){
+                cycle=2;
+                $(this).removeClass("val2");
+            }
+            count=0;
+        }
+
+
+        var itemCycle;
+        var isHistory=0;
+        $(".tab").each(function () {
+            if ($(this).hasClass('list_active')) {
+                itemCycle=$(this).index();
+            }
+        });
+        if (itemCycle==4){
+            isHistory=1;
+        }
+
+        var itemType=$("#itemType").val();
+        loadInvestListDataInfo(itemCycle,isHistory,itemType,null,null,null,cycle);
+
+
+    });
+
 
 });
 
@@ -28,7 +106,7 @@ $(function () {
  * @param pageSize   每页大小
  *
  */
-function loadInvestListDataInfo(itemCycle,isHistory,itemType,pageNum,pageSize) {
+function loadInvestListDataInfo(itemCycle,isHistory,itemType,pageNum,pageSize,itemRate,cycle) {
     var params={};
     params.isHistory=0;//默认为可投项目
     params.pageNum=1;
@@ -49,7 +127,12 @@ function loadInvestListDataInfo(itemCycle,isHistory,itemType,pageNum,pageSize) {
     if (!isEmpty(pageSize)) {
         params.pageSize=pageSize;
     }
-
+    if (!isEmpty(itemRate)){
+        params.itemRate=itemRate;
+    }
+   if (!isEmpty(cycle)) {
+       params.cycle=cycle;
+   }
     $.ajax({
        type:'post',
        url:ctx+'/item/list',
@@ -145,6 +228,9 @@ function initTrHtml(list) {
             }
             if (temp.item_status==23) {
                 trs=trs+"<p><a><input not_valid type='button' value='已满标'/></a></p>"
+            }
+            if (temp.item_status==18) {
+                trs=trs+"<p><a><input not_valid type='button' value='已截标'/></a></p>"
             }
             if(temp.item_status==32){
                 trs=trs+"<p style='position: relative'><a  class='yihuankuan'>已还款</a><div class='not_valid_pay'></div></p>";

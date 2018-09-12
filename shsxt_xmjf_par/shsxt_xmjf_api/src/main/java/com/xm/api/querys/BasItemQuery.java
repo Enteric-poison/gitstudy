@@ -12,7 +12,24 @@ public class BasItemQuery extends BaseQuery implements Serializable {
     private Integer itemCycle;//项目期限  1:0-30  2:30-90   3:90以上
     private Integer isHistory;// 是否为历史项目 1-历史项目  0-可投项目
     private Integer itemType;// 项目类型
+    private Integer itemRate;//排序，1正序，2，倒叙  --年化
+    private  Integer cycle;//期限 排序
 
+    public Integer getCycle() {
+        return cycle;
+    }
+
+    public void setCycle(Integer cycle) {
+        this.cycle = cycle;
+    }
+
+    public Integer getItemRate() {
+        return itemRate;
+    }
+
+    public void setItemRate(Integer itemRate) {
+        this.itemRate = itemRate;
+    }
 
     public Integer getItemCycle() {
         return itemCycle;
