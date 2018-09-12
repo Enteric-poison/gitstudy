@@ -1,6 +1,7 @@
 package com.xm.web.controller;
 
 import com.xm.api.constant.XmjfConstant;
+import com.xm.api.exceptions.BusiException;
 import com.xm.api.model.ResultInfo;
 import com.xm.api.model.UserModel;
 import com.xm.api.po.BasUser;
@@ -41,9 +42,21 @@ public class UserController {
     @ResponseBody
     @RequestMapping("user/login")
     public ResultInfo login(String mobile, String password, HttpSession session){
-        UserModel userModel= userService.userLogin(mobile,password);
-        session.setAttribute(XmjfConstant.USER_INFO,userModel);
-        return new ResultInfo();
+        ResultInfo resultInfo=new ResultInfo();
+        try {
+            UserModel userModel= userService.userLogin(mobile,password);
+            session.setAttribute(XmjfConstant.USER_INFO,userModel);
+        } catch (BusiException e) {
+            e.printStackTrace();
+            resultInfo.setCode(e.getCode());
+            resultInfo.setMsg(e.getMsg());
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultInfo.setCode(XmjfConstant.FAILED_CODE);
+            resultInfo.setMsg(XmjfConstant.FAILED_MSG);
+        }
+
+        return resultInfo;
     }
     //快速登录
     @RequestMapping("doquickLogin")

@@ -145,6 +145,8 @@ function loadInvestListDataInfo(itemCycle,isHistory,itemType,pageNum,pageSize,it
                 initTrHtml(list);
                 // 渲染投资进度
                 initInvestJd();
+                // 渲染倒计时
+                initSyTime();
 
                 // 拼接页码html
                 initPageHtml(page);
@@ -209,31 +211,50 @@ function initTrHtml(list) {
 
             // 担保机构
             trs=trs+"<td><img src="+ctx+"/statics/img/logo.png></td>";
-            // 投资进度
-            trs=trs+"<td class='data-val' data-val='"+temp.item_scale+"'></td>";
+
+            //倒计时
+
+            if(temp.item_status==1){
+                // 项目等待开放状态
+                trs=trs+"<td >";
+                trs=trs+" <strong class='countdown time' data-time='"+temp.syTime+"' data-item='"+temp.id+"'>";
+                trs=trs+"<time class='hour'></time>&nbsp;:";
+                trs=trs+" <time class='min'></time>&nbsp;:";
+                trs=trs+"<time class='sec'></time>";
+                trs=trs+"</strong>";
+                trs=trs+"</td>";
+            }else{
+                // 投资进度
+                trs=trs+"<td class='data-val' data-val='"+temp.item_scale+"'></td>";
+            }
+
+
+
+
             // 操作项
 
             trs=trs+"<td>";
+            var href=ctx+"/item/details/"+temp.id;
             if(temp.item_status==1){
-                trs=trs+"<p><a ><input class='countdownButton' valid type='button' value='即将开标'></a></p>";
+                trs=trs+"<p><a  href='"+href+"'><input class='countdownButton' valid type='button' value='即将开标'></a></p>";
             }
             if (temp.item_status==10){
-                trs=trs+"<p class='left_money'>可投金额"+temp.syAmount+"</p><p><a ><input valid type='button' value='立即投资'></a></p>"
+                trs=trs+"<p class='left_money'>可投金额"+temp.syAmount+"</p><p><a href='"+href+"'><input valid type='button' value='立即投资'></a></p>"
             }
             if (temp.item_status==20) {
-                trs=trs+"<p><a ><input not_valid type='button' value='已抢完'></a></p>";
+                trs=trs+"<p><a href='"+href+"'><input not_valid type='button' value='已抢完'></a></p>";
             }
             if (temp.item_status==30||temp.item_status==31) {
-                trs=trs+"<p><a ><input not_valid type='button' value='还款中'></a></p>";
+                trs=trs+"<p><a href='"+href+"'><input not_valid type='button' value='还款中'></a></p>";
             }
             if (temp.item_status==23) {
-                trs=trs+"<p><a><input not_valid type='button' value='已满标'/></a></p>"
+                trs=trs+"<p><a href='"+href+"'><input not_valid type='button' value='已满标'/></a></p>"
             }
             if (temp.item_status==18) {
-                trs=trs+"<p><a><input not_valid type='button' value='已截标'/></a></p>"
+                trs=trs+"<p><a href='"+href+"'><input not_valid type='button' value='已截标'/></a></p>"
             }
             if(temp.item_status==32){
-                trs=trs+"<p style='position: relative'><a  class='yihuankuan'>已还款</a><div class='not_valid_pay'></div></p>";
+                trs=trs+"<p style='position: relative'><a href='"+href+"'  class='yihuankuan'>已还款</a><div class='not_valid_pay'></div></p>";
             }
 
             trs=trs+"</td>";
@@ -309,3 +330,57 @@ function toPageDataInfo(pageNum) {
     var itemType= $("#itemType").val();
     loadInvestListDataInfo(itemCycle,isHistory,itemType,pageNum);
 }
+
+//初始化倒计时
+function initSyTime() {
+    $(".countdown").each(function () {
+        var syTime= $(this).attr("data-time");
+        var itemId=$(this).attr("data-item");
+        timer(syTime,$(this),itemId);
+    });
+}
+
+
+function timer(intDiff,obj,itemId) {
+    if( obj.timers){
+        clearInterval( obj.timers);
+    }
+    obj.timers=setInterval(function(){
+        var day=0,
+            hour=0,
+            minute=0,
+            second=0;//时间默认值
+        if(intDiff > 0){
+            day = Math.floor(intDiff / (60 * 60 * 24));
+
+            hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+            minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+            second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+        }
+        if (minute <= 9) minute = '0' + minute;
+        if (second <= 9) second = '0' + second;
+        obj.find('.hour').html(hour);
+        obj.find('.min').html(minute);
+        obj.find('.sec').html(second);
+        intDiff--;
+        if(intDiff==-1){
+            $.ajax({
+                url : ctx+'/item/update',
+                dataType : 'json',
+                type : 'post',
+                data:{
+                    itemId:itemId
+                },
+                success : function(data) {
+                    if(data.code==200){
+                        window.location.reload();
+                    }
+                },
+                error : function(textStatus, errorThrown) {
+
+                }
+            });
+        }
+    }, 1000);
+}
+

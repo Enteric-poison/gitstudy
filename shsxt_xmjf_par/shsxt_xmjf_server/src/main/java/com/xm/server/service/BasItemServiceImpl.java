@@ -2,8 +2,11 @@ package com.xm.server.service;
 
 import com.github.pagehelper.PageHelper;
 import com.xm.api.constant.ItemStatus;
+import com.xm.api.constant.XmjfConstant;
+import com.xm.api.po.BasItem;
 import com.xm.api.querys.BasItemQuery;
 import com.xm.api.service.BasItemService;
+import com.xm.api.util.AssertUtil;
 import com.xm.api.util.PageList;
 import com.xm.server.db.dao.BasItemMapper;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -44,8 +48,27 @@ public class BasItemServiceImpl implements BasItemService {
                       map.put("syAmount",itemAccount.subtract(itemOnGoingAccount));
 
                   }
+
+                  //等待开放
+                if (itemStatus==ItemStatus.WAITOPEN){
+                    Date relaseTime= (Date) map.get("release_time");
+                    Long syTime=(relaseTime.getTime()-new Date().getTime())/1000;
+                    System.out.println(new Date().getTime());
+                    map.put("syTime",syTime);
+                }
+
+
             }
         }
         return new PageList(vals);
+    }
+
+    //修改状态值
+    @Override
+    public void updateStatus(Integer itemId) {
+        BasItem basItem =basItemMapper.queryById(itemId);
+        basItem.setItemStatus(ItemStatus.OPEN);
+        basItem.setUpdateTime(new Date());
+        AssertUtil.isTrue(basItemMapper.update(basItem)<1, XmjfConstant.FAILED_MSG);
     }
 }

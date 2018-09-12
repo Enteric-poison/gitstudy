@@ -1,10 +1,12 @@
 package com.xm.web.controller;
 
+import com.xm.api.model.ResultInfo;
 import com.xm.api.querys.BasItemQuery;
 import com.xm.api.service.BasItemService;
 import com.xm.api.util.PageList;
 import com.xm.web.base.BaseController;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,5 +36,21 @@ public class BasItemController extends BaseController {
         System.out.println(pageList.getPaginator());
         return pageList;
     }
+
+    @RequestMapping("update")
+    @ResponseBody
+    public ResultInfo updateStatus(Integer itemId){
+        basItemService.updateStatus(itemId);
+        return new ResultInfo();
+    }
+
+
+    @RequestMapping("details/{itemId}")
+    public String details(@PathVariable Integer itemId){
+        return "details";
+    }
+
+
+
 
 }

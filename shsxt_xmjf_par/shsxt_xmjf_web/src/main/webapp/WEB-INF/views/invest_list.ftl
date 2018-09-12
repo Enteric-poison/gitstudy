@@ -33,8 +33,8 @@
         </div>
         <div class="header_button">
             <div id="noUserId" style="width:142px;float: right">
-                <a href="http://localhost:8888/user/login"><input class="btn register" id="loginPage" type="button" value="登录"></a>
-                <a href="http://localhost:8888/user/register"><input class="btn register" id="registerPage" type="button" value="注册"></a>
+                <a href="http://localhost:8888/login"><input class="btn register" id="loginPage" type="button" value="登录"></a>
+                <a href="http://localhost:8888/register"><input class="btn register" id="registerPage" type="button" value="注册"></a>
             </div>
         </div>
     </div>

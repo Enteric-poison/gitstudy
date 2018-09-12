@@ -15,10 +15,10 @@
             <a href="${ctx}/introduce?0?4">关于我们</a>
         </div>
         <div class="header_button">
-            <#if user??>
-                <div id="hasUserId">
+            <#if userInfo??>
+                <div id="hasId">
                     <div class='btn login' style="margin:36px auto 0; width: 164px;">
-                         <p>${user.mobile}<img style="margin:15px 0 0 5px;" src="/statics/img/xl-icon.png" alt=""></p>
+                         <p>${userInfo.mobile}<img style="margin:15px 0 0 5px;" src="/statics/img/xl-icon.png" alt=""></p>
                     </div>
                     <div id="option" class="option display">
                         <div class="option-message">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             <#else>
-                <div id="noUserId" style="width:142px;float: right">
+                <div id="noId" style="width:142px;float: right">
                     <a href="${ctx}/login"><input class='btn register' id='loginPage' type="button" value="登录"></a>
                     <a href="${ctx}/register"><input class='btn register' id='registerPage' type="button" value="注册"></a>
                 </div>
