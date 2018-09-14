@@ -18,27 +18,18 @@
     id, user_id, payment_password, pattern_lock, realname, identify_card, phone_status, 
     email_status, realname_status, email, verify_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from bas_user_security
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="delete" parameterType="java.lang.Integer">
     delete from bas_user_security
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.xm.api.po.BasUserSecurity">
-    insert into bas_user_security (id, user_id, payment_password, 
-      pattern_lock, realname, identify_card, 
-      phone_status, email_status, realname_status, 
-      email, verify_time)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{paymentPassword,jdbcType=VARCHAR}, 
-      #{patternLock,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{identifyCard,jdbcType=VARCHAR}, 
-      #{phoneStatus,jdbcType=INTEGER}, #{emailStatus,jdbcType=INTEGER}, #{realnameStatus,jdbcType=INTEGER}, 
-      #{email,jdbcType=VARCHAR}, #{verifyTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xm.api.po.BasUserSecurity">
+
+  <insert id="save" parameterType="com.xm.api.po.BasUserSecurity">
     insert into bas_user_security
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -111,7 +102,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xm.api.po.BasUserSecurity">
+  <update id="update" parameterType="com.xm.api.po.BasUserSecurity">
     update bas_user_security
     <set>
       <if test="userId != null">
@@ -147,18 +138,5 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xm.api.po.BasUserSecurity">
-    update bas_user_security
-    set user_id = #{userId,jdbcType=INTEGER},
-      payment_password = #{paymentPassword,jdbcType=VARCHAR},
-      pattern_lock = #{patternLock,jdbcType=VARCHAR},
-      realname = #{realname,jdbcType=VARCHAR},
-      identify_card = #{identifyCard,jdbcType=VARCHAR},
-      phone_status = #{phoneStatus,jdbcType=INTEGER},
-      email_status = #{emailStatus,jdbcType=INTEGER},
-      realname_status = #{realnameStatus,jdbcType=INTEGER},
-      email = #{email,jdbcType=VARCHAR},
-      verify_time = #{verifyTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
 </mapper>

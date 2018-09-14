@@ -1,17 +1,8 @@
 package com.xm.server.db.dao;
 
 import com.xm.api.po.BasUserSecurity;
+import com.xm.server.db.base.BaseDao;
 
-public interface BasUserSecurityMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface BasUserSecurityMapper extends BaseDao<BasUserSecurity> {
 
-    int insert(BasUserSecurity record);
-
-    int insertSelective(BasUserSecurity record);
-
-    BasUserSecurity selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(BasUserSecurity record);
-
-    int updateByPrimaryKey(BasUserSecurity record);
 }

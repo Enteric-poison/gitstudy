@@ -155,5 +155,7 @@
     <!--投资接口-->
     <dubbo:service interface="com.xm.api.service.BasItemService" ref="basItemServiceImpl"></dubbo:service>
 
+    <dubbo:service interface="com.xm.api.service.BasUserSecurityService" ref="basUserSecurityServiceImpl"></dubbo:service>
+
 
 </beans>

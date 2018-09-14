@@ -80,5 +80,5 @@
 
     <dubbo:reference id="basItemService" interface="com.xm.api.service.BasItemService" timeout="60000"/>
 
-
+    <dubbo:reference interface="com.xm.api.service.BasUserSecurityService" id="basUserSecurityService"></dubbo:reference>
 </beans>

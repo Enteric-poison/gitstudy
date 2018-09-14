@@ -1,5 +1,6 @@
 package com.xm.api.service;
 
+import com.xm.api.po.BasItem;
 import com.xm.api.querys.BasItemQuery;
 import com.xm.api.util.PageList;
 
@@ -11,4 +12,6 @@ public interface BasItemService {
     public PageList queryBasItemsByParams(BasItemQuery basItemQuery);
 
     public void updateStatus(Integer itemId);
+
+    public BasItem queryBasItemByItemId(Integer itemId);
 }

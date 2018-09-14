@@ -71,4 +71,11 @@ public class BasItemServiceImpl implements BasItemService {
         basItem.setUpdateTime(new Date());
         AssertUtil.isTrue(basItemMapper.update(basItem)<1, XmjfConstant.FAILED_MSG);
     }
+
+    @Override
+    public BasItem queryBasItemByItemId(Integer itemId) {
+        return basItemMapper.queryById(itemId);
+
+
+    }
 }
