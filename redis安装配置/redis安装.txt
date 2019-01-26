@@ -1,0 +1,42 @@
+1.
+	下载tar包
+2.
+	运行命令：
+	tar zxvf redis-x.x.x.tar.gz
+3.
+	安装依赖
+	yum -y install gcc-c++ autoconf automake
+4.
+	预编译
+	切换到解压目录cd redis
+	运行命令：
+	make
+5.
+	创建安装目录
+	mkdir -p /usr/local/redis
+	不使用 make install（默认安装到usr/local/bin）
+6.
+	安装(指定路径安装)
+	make PREFIX=/usr/local/redis/ install
+7.
+	启动
+	 ./redis-server
+8.
+	默认为前台启动，修改为后台启动
+	复制 redis.conf 至安装路径下
+	cp redis.conf /usr/local/redis/bin/
+
+9.
+	修改配置redis.conf
+
+	1修改安装路径下的 redis.conf，将 daemonize 修改为 yes（后台启动）
+
+	2注释掉 bind 127.0.0.1 可以使所有的 ip 访问 redis， 若是想指定多个 ip 访问，但并不是全部的 ip 访问，可以 bind 设置
+	3关闭保护模式，protected-mode修改为 no
+	4添加访问认证requirepass 去掉注释 修改密码
+	
+
+
+
+
+

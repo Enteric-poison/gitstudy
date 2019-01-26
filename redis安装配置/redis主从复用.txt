@@ -1,0 +1,47 @@
+
+
+1.
+	创建三个目录（数据文件、日志文件、配置文件）
+	mkdir -p /opt/redis/data
+	mkdir -p /opt/redis/log
+	mkdir -p /opt/redis/conf
+2.
+	复制 redis.conf 至/opt/redis/conf 目录下
+	cp redis.conf /opt/redis/conf redis-common.conf 
+
+3.
+	修改 redis-common.conf 公共配置文件
+
+	1 注释掉 bind 127.0.0.1
+	2 关闭保护模式，protected-mode修改为 no
+	3 注释公共配置端口 port 6379
+	4 修改为后台启动 daemonize 修改为yes
+	5 注释进程编号记录文件 pidfile /var/run/redis_6379.pid
+	6 注释公共配置日志文件 logfile ""
+	7 注释公共配置数据文件、修改数据文件路径
+		dbfilename  dump.rdb注释掉，
+		dir /opt/redis/data 文件路径修改
+	8 添加从服务器访问主服务器认证 masterauth root
+	9 添加访问认证 requirepass 
+	10 持久化
+		注释公共配置追加文件 appendonly no
+		appendonlyname "appendonly.aof" 注释掉
+		根据需求配置是否打开追加文件选项
+		appendonly yes -> 每当 Redis 执行一个改变数据集的命令时（比如 SET），这个命
+		令就会被追加到 AOF 文件的末尾。这样的话，当 Redis重新启时，程序就可以通过重新执行 AOF 文件中的命令来达到重建数据集的目的。
+	11 从服务器默认是只读不允许写操作(不用修改)
+		slave-read-only yes
+4.
+	添加 3 个服务的私有配置文件
+	touch redis-6379.conf
+	touch redis-6380.conf
+	touch redis-6381.conf
+
+5.
+	添加防火墙规则
+	vi /etc/sysconfig/iptables
+	开放端口
+	-A INPUT -p tcp -m state --state NEW -m tcp --dport 6379 -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW -m tcp --dport 6380 -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW -m tcp --dport 6381 -j ACCEPT
+
