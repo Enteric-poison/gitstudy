@@ -27,13 +27,13 @@ public class test {
     }
     @Test
     public void test02(){
-        BasUser user=userService.queryByPhone("18321530938");
+        BasUser user=userService.queryByPhone("1832****");
         System.out.println(user.getId());
     }
 
     @Test
     public void test03(){
-        userService.saveUser("15718871127","123456","7075");
+        userService.saveUser("157****","123456","7075");
     }
 
 }
