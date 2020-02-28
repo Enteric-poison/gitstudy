@@ -70,8 +70,8 @@ public class SmsServiceImpl implements SmsService {
             System.setProperty("sun.net.client.defaultReadTimeout", "20000");
             final String product = "Dysmsapi";//短信API产品名称（短信产品名固定，无需修改）
             final String domain = "dysmsapi.aliyuncs.com";//短信API产品域名（接口地址固定，无需修改）
-            final String accessKeyId = "LTAIVjITjbgB2zGd";//你的accessKeyId,参考本文档步骤2
-            final String accessKeySecret = "SuXKHmNqCIsPaVA4scAglbQLCnFC3l";//你的accessKeySecret，参考本文档步骤2
+            final String accessKeyId = "***";//你的accessKeyId,参考本文档步骤2
+            final String accessKeySecret = "****";//你的accessKeySecret，参考本文档步骤2
             IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId,
                     accessKeySecret);
             DefaultProfile.addEndpoint("cn-hangzhou", "cn-hangzhou", product, domain);
@@ -79,7 +79,7 @@ public class SmsServiceImpl implements SmsService {
             SendSmsRequest request = new SendSmsRequest();
             request.setMethod(MethodType.POST);
             request.setPhoneNumbers(mobile);
-            request.setSignName("Sherley009");
+            request.setSignName("****");
             request.setTemplateCode(smsLoginTemplateCode);
             Map<String,String> map=new HashMap<String,String>();
             map.put("code",code);
