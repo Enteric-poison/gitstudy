@@ -23,6 +23,6 @@ public class TestMsg {
 
     @Test
     public void test01(){
-        smsService.sendSMsg("15718871127", XmjfConstant.SMS_REGISTER_TYPE);
+        smsService.sendSMsg("157*****", XmjfConstant.SMS_REGISTER_TYPE);
     }
 }
